@@ -11,7 +11,7 @@ import java.sql.SQLException;
 //Início da classe de conexão//
 public class DAOTeste {
 
-    public static String status = "Não conectou...";
+    public static String status = "Sem conexão...";
 
 //Método Construtor da Classe//
     public DAOTeste() {
@@ -46,25 +46,24 @@ public class DAOTeste {
             //Testa sua conexão//  
             if (connection != null) {
 
-                status = ("STATUS--->Conectado com sucesso!");
+                status = ("STATUS: Conectado com sucesso!");
 
             } else {
 
-                status = ("STATUS--->Não foi possivel realizar conexão");
+                status = ("STATUS: Não foi possivel realizar conexão");
 
             }
 
             return connection;
 
         } catch (ClassNotFoundException e) {  //Driver não encontrado
-
+            e.printStackTrace();
             System.out.println("O driver expecificado nao foi encontrado.");
 
             return null;
 
-        } catch (SQLException e) {
-
-//Não conseguindo se conectar ao banco
+        } catch (SQLException e) { //Não conseguindo se conectar ao banco
+            e.printStackTrace();
             System.out.println("Nao foi possivel conectar ao Banco de Dados.");
 
             return null;
@@ -105,7 +104,9 @@ public class DAOTeste {
         return DAOTeste.getConexaoMySQL();
 
     }
-public static void main(String[] args){
-    getConexaoMySQL();
-}
+
+    public static void main(String[] args) {
+        getConexaoMySQL();
+        System.out.println(statusConection());
+    }
 }
