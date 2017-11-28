@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TrabJava;
+package TrabJava.DAO;
 
+import TrabJava.Pedido;
 import java.io.Serializable;
 import java.util.List;
 
@@ -12,26 +13,25 @@ import java.util.List;
  *
  * @author Jorge
  */
-public class ClienteDAO extends Cliente implements Serializable {
-
-    boolean inserirPessoa(Cliente c) {
+public class PedidoDAO extends Pedido implements Serializable{
+    
+        boolean inserirPedido(Pedido c) {
         return false;
     }
 
-    boolean atualizarPessoa(Cliente c) {
+    boolean atualizarPedido(Pedido c) {
         return false;
     }
 
-    boolean removerPessoa(Cliente c) {
+    boolean removerPedido(Pedido c) {
         return false;
     }
 
-    Cliente buscarPorId(int id) {
+    Pedido buscarPorId(int id) {
         return null;
     }
 
-    List<Cliente> buscarTodos() {
+    List<Pedido> buscarTodos() {
         return null;
     }
-
 }

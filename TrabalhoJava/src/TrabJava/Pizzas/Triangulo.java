@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TrabJava;
+package TrabJava.Pizzas;
 
 /**
  *
  * @author Jorge
  */
-public class Cliente {
+public class Triangulo extends Forma {
 
-	private String nome; //char(100)
+	private int lado;
 
-	private String sobrenome;
-
-	private int telefone;
+	public int area(int lado) {
+		return 0;
+	}
 
 }

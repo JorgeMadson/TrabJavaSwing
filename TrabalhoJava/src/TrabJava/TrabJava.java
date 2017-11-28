@@ -9,7 +9,7 @@ package TrabJava;
  *
  * @author luh
  */
-public class Swing {
+public class TrabJava {
 
     /**
      * @param args the command line arguments

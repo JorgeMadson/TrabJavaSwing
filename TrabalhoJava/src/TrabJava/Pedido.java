@@ -9,12 +9,12 @@ package TrabJava;
  *
  * @author Jorge
  */
-public class Cliente {
+public class Pedido {
+    
+	private int numero;
 
-	private String nome; //char(100)
+	private String nome;
 
-	private String sobrenome;
-
-	private int telefone;
+	private String status;
 
 }
