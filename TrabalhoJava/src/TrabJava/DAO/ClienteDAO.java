@@ -7,6 +7,7 @@ package TrabJava.DAO;
 
 import TrabJava.Cliente;
 import java.io.Serializable;
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -15,6 +16,8 @@ import java.util.List;
  */
 public class ClienteDAO extends Cliente implements Serializable {
 
+    ResultSet  rs  = null;
+    
     boolean inserirCliente(Cliente c) {
         return false;
     }

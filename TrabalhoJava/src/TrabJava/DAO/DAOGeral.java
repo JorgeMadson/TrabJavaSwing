@@ -134,11 +134,17 @@ public class DAOGeral {
                 + "idCliente INT(64) NOT NULL AUTO_INCREMENT PRIMARY KEY , "
                 + "nomeCliente VARCHAR(100),"
                 + "sobrenomeCliente VARCHAR(100),"
-                + "telefoneCliente INT,";
+                + "telefoneCliente INT)";
+        String tabelaPedido = "CREATE TABLE tb_pedido( "
+                + "idPedido INT(64) NOT NULL AUTO_INCREMENT PRIMARY KEY , "
+                + "nomePedido VARCHAR(100),"
+                + "statusPedido VARCHAR(100))";
         try {
             Statement st = conn.createStatement();
             st.executeUpdate(tabelaCliente);
-            System.out.println("Tabela criada!");
+            status = "Tabela Cliente criada!";
+            st.execute(tabelaPedido);
+            status = "Tabela Pedido criada!";
             return conn;
         } catch (SQLException e) {
             return conn;
@@ -148,9 +154,10 @@ public class DAOGeral {
     }
 
     //Main para executar a criação do banco e tabelas
+    //Execute primeiro a criarBanco() e depois a criarTabelas()
     public static void main(String[] args) {
-        //getConexaoMySQL();
-        criarBanco();
+        //criarBanco();
+        getConexaoMySQL();
         criarTabelas();
         System.out.println(statusConection());
         fecharConexao();
