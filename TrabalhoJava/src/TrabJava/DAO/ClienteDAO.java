@@ -53,7 +53,31 @@ public class ClienteDAO extends Cliente implements Serializable {
     }
 
     public static boolean atualizarCliente(Cliente c) {
-        return false;
+ PreparedStatement st = null;
+        try {
+            //Conexao com o banco:
+            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj" ,"root", "root");
+            
+            st = con.prepareStatement("update tb_cliente set nomeCliente=?,sobrenomeCliente=?,telefoneCliente=? where idCliente=? ");
+            st.setString(1, c.getNome());
+            st.setString(2, c.getSobrenome());
+            st.setInt(3, c.getTelefone());
+            st.setInt(4, c.getId());
+          
+            
+            int rowsAffected = st.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                }
+            }
+        }        
     }
 
     public static boolean removerCliente(Cliente c) {

@@ -170,5 +170,13 @@ public class DAOGeral {
         a.setSobrenome("Paulo2");
         a.setTelefone(123);
         ClienteDAO.inserirCliente(a);*/
+       
+       //Teste Atualizacao cliente
+        Cliente a = new Cliente();
+        a.setNome("Pedro");
+        a.setSobrenome("Silva");
+        a.setTelefone(999);
+        a.setId(2);
+        ClienteDAO.atualizarCliente(a);
     }
 }
