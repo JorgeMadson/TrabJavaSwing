@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+# *.jar #jar comentado para inclusão do driver do sql no projeto
 *.war
 *.ear
 *.zip
