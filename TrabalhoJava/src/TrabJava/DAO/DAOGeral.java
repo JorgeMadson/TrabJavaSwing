@@ -1,6 +1,7 @@
 package TrabJava.DAO;
 
 //Classes necessárias para uso de Banco de dados //
+import TrabJava.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -36,7 +37,7 @@ public class DAOGeral {
             String username = "root";        //nome de um usuário de seu BD      
 
             String password = "root";      //sua senha de acesso
-
+            
             conn = DriverManager.getConnection(url, username, password);
 
             //Testa sua conexão//  
@@ -156,10 +157,18 @@ public class DAOGeral {
     //Main para executar a criação do banco e tabelas
     //Execute primeiro a criarBanco() e depois a criarTabelas()
     public static void main(String[] args) {
+        /*Para teste e criacao de banco/tabelas
         criarBanco();
-        //getConexaoMySQL();
+        getConexaoMySQL();
         //criarTabelas();
         System.out.println(statusConection());
-        fecharConexao();
+        fecharConexao();*/
+        
+       /* //Teste insercao cliente
+        Cliente a = new Cliente();
+        a.setNome("Paulo");
+        a.setSobrenome("Paulo2");
+        a.setTelefone(123);
+        ClienteDAO.inserirCliente(a);*/
     }
 }
