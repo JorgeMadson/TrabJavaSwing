@@ -156,9 +156,9 @@ public class DAOGeral {
     //Main para executar a criação do banco e tabelas
     //Execute primeiro a criarBanco() e depois a criarTabelas()
     public static void main(String[] args) {
-        //criarBanco();
-        getConexaoMySQL();
-        criarTabelas();
+        criarBanco();
+        //getConexaoMySQL();
+        //criarTabelas();
         System.out.println(statusConection());
         fecharConexao();
     }

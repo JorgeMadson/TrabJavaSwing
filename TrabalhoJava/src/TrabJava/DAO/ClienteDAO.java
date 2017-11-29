@@ -22,19 +22,19 @@ public class ClienteDAO extends Cliente implements Serializable {
         return false;
     }
 
-    public boolean atualizarCliente(Cliente c) {
+    public static boolean atualizarCliente(Cliente c) {
         return false;
     }
 
-    public boolean removerCliente(Cliente c) {
+    public static boolean removerCliente(Cliente c) {
         return false;
     }
 
-    public Cliente buscarPorId(int id) {
+    public static Cliente buscarPorId(int id) {
         return null;
     }
 
-    public List<Cliente> buscarTodos() {
+    public static List<Cliente> buscarTodos() {
         return null;
     }
 
