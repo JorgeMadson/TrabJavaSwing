@@ -15,23 +15,23 @@ import java.util.List;
  */
 public class PedidoDAO extends Pedido implements Serializable{
     
-        boolean inserirPedido(Pedido c) {
+    public static boolean inserirPedido(Pedido c) {
         return false;
     }
 
-    boolean atualizarPedido(Pedido c) {
+    public static boolean atualizarPedido(Pedido c) {
         return false;
     }
 
-    boolean removerPedido(Pedido c) {
+    public static boolean removerPedido(Pedido c) {
         return false;
     }
 
-    Pedido buscarPorId(int id) {
+    public static Pedido buscarPorId(int id) {
         return null;
     }
 
-    List<Pedido> buscarTodos() {
+    public static List<Pedido> buscarTodos() {
         return null;
     }
 }
