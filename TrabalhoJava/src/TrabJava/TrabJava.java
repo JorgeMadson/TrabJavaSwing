@@ -16,6 +16,9 @@ public class TrabJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //Chamar uma tela aqui para teste
+        //TrabJava.Telas.Tela0();
+        
     }
     
 }
