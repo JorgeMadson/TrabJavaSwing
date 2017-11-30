@@ -7,6 +7,10 @@ package TrabJava.Telas;
 
 import TrabJava.Cliente;
 import TrabJava.DAO.ClienteDAO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,6 +23,12 @@ public class Tela1 extends javax.swing.JFrame {
      */
     public Tela1() {
         initComponents();
+        try {
+            mostrarDadosNaTabela(ClienteDAO.buscarTodos(), jTable7);
+        } catch (Exception e) {
+
+        }
+        
     }
 
     /**
@@ -264,6 +274,13 @@ public class Tela1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+public void mostrarDadosNaTabela(ArrayList<Cliente> listDeClientes, JTable table){
+     DefaultTableModel model = new DefaultTableModel(new Object[]{"Nome", "Sobrenome", "Telefone"}, 0);
+     for(Cliente cliente:listDeClientes){
+          model.addRow(new Object[]{cliente.getNome(), cliente.getSobrenome(), cliente.getTelefone()});
+     }
+     table.setModel(model);
+}
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
@@ -349,6 +366,8 @@ public class Tela1 extends javax.swing.JFrame {
                 new Tela1().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
