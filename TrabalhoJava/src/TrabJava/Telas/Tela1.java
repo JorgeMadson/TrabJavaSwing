@@ -5,6 +5,9 @@
  */
 package TrabJava.Telas;
 
+import TrabJava.Cliente;
+import TrabJava.DAO.ClienteDAO;
+
 /**
  *
  * @author luh
@@ -288,9 +291,19 @@ public class Tela1 extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
-
+    //Botão Salvar (Cadastrar Cliente)
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        try{
+            int teste = Integer.parseInt(jTextField22.getText());
+            Cliente novoCliente = new Cliente(jTextField20.getText(),jTextField21.getText(),Integer.parseInt(jTextField22.getText()));
+            ClienteDAO.inserirCliente(novoCliente);
+        }
+        catch(NumberFormatException e){
+            jTextField22.setText("Número inválido");
+        }
+            
+        
     }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
