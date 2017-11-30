@@ -294,16 +294,13 @@ public class Tela1 extends javax.swing.JFrame {
     //Botão Salvar (Cadastrar Cliente)
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             int teste = Integer.parseInt(jTextField22.getText());
-            Cliente novoCliente = new Cliente(jTextField20.getText(),jTextField21.getText(),Integer.parseInt(jTextField22.getText()));
+            Cliente novoCliente = new Cliente(jTextField20.getText(), jTextField21.getText(), Integer.parseInt(jTextField22.getText()));
             ClienteDAO.inserirCliente(novoCliente);
-        }
-        catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             jTextField22.setText("Número inválido");
         }
-            
-        
     }//GEN-LAST:event_jButton13ActionPerformed
 
     /**
