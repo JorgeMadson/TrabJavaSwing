@@ -212,15 +212,30 @@ public class Tela3 extends javax.swing.JFrame {
         jLabel3.setText("Premium");
 
         jMenu7.setText("Cliente");
+        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu7MouseClicked(evt);
+            }
+        });
         jMenuBar4.add(jMenu7);
 
         jMenu8.setText("Pedidos");
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
         jMenuBar4.add(jMenu8);
 
         jMenu9.setText("Configurar");
         jMenuBar4.add(jMenu9);
 
         jMenu10.setText("Cadastrar Produto");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
         jMenuBar4.add(jMenu10);
 
         setJMenuBar(jMenuBar4);
@@ -294,6 +309,24 @@ public class Tela3 extends javax.swing.JFrame {
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        // TODO add your handling code here:
+        Tela4 tela4 = new Tela4();
+        tela4.setVisible(true);
+    }//GEN-LAST:event_jMenu10MouseClicked
+
+    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
+        // TODO add your handling code here:
+        Tela1 tela1 = new Tela1();
+        tela1.setVisible(true);
+    }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        // TODO add your handling code here:
+        Tela2 tela = new Tela2();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jMenu8MouseClicked
 
     /**
      * @param args the command line arguments

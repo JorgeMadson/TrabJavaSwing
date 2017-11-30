@@ -8,6 +8,7 @@ package TrabJava.Telas;
 import TrabJava.Cliente;
 import TrabJava.DAO.ClienteDAO;
 import java.util.ArrayList;
+import javax.swing.Action;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +25,8 @@ public class Tela1 extends javax.swing.JFrame {
         initComponents();
         try {
             mostrarDadosNaTabela(ClienteDAO.buscarTodos(), jTable7);
+            //mudarParaPedidos();
+            //jMenu2.setAction(mudarParaPedidos());
         } catch (Exception e) {
 
         }
@@ -252,9 +255,19 @@ public class Tela1 extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Pedidos");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Configurar");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -267,7 +280,7 @@ public class Tela1 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
 
         pack();
@@ -346,6 +359,18 @@ public void mostrarDadosNaTabela(ArrayList<Cliente> listDeClientes, JTable table
             jTextField22.setText("Número inválido");
         }
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        Tela2 tela2 = new Tela2();
+        tela2.setVisible(true);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        Tela3 tela3 = new Tela3();
+        tela3.setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     /**
      * @param args the command line arguments
