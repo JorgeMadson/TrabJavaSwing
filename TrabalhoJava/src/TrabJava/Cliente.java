@@ -18,7 +18,16 @@ public class Cliente {
 	private int telefone;
         
         private int id;
-
+        //Construtores
+        //Padrão
+        public Cliente(){}
+        //Com valores
+        public Cliente(String nome, String sobrenome, int telefone){
+            this.nome = nome;
+            this.sobrenome = sobrenome;
+            this.telefone = telefone;
+        }
+        
     /**
      * @return the nome
      */

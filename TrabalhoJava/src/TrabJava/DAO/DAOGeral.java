@@ -129,7 +129,8 @@ public class DAOGeral {
 
     //Método para criar tabelas
     public static Connection criarTabelas() {
-
+        //
+        conn = getConexaoMySQL();
         //Criando tabela de clientes;
         String tabelaCliente = "CREATE TABLE tb_cliente( "
                 + "idCliente INT(64) NOT NULL AUTO_INCREMENT PRIMARY KEY , "
@@ -159,24 +160,29 @@ public class DAOGeral {
     public static void main(String[] args) {
         /*Para teste e criacao de banco/tabelas
         criarBanco();
-        getConexaoMySQL();
-        //criarTabelas();
+        criarTabelas();
         System.out.println(statusConection());
         fecharConexao();*/
         
-       /* //Teste insercao cliente
+        /*//Teste insercao cliente
         Cliente a = new Cliente();
         a.setNome("Paulo");
         a.setSobrenome("Paulo2");
         a.setTelefone(123);
         ClienteDAO.inserirCliente(a);*/
        
-       //Teste Atualizacao cliente
+       /*//Teste Atualizacao cliente
         Cliente a = new Cliente();
         a.setNome("Pedro");
         a.setSobrenome("Silva");
         a.setTelefone(999);
         a.setId(2);
-        ClienteDAO.atualizarCliente(a);
+        ClienteDAO.atualizarCliente(a);*/
+       
+       /*//Teste exclusão de cliente
+       Cliente a =  new Cliente("Paulo","Paulo2",123);
+       //O que importa é o id;
+       a.setId(1);
+       ClienteDAO.removerCliente(a);*/
     }
 }
