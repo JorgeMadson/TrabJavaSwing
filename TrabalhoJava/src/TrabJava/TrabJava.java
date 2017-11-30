@@ -5,6 +5,8 @@
  */
 package TrabJava;
 
+import TrabJava.Telas.Tela1;
+
 /**
  *
  * @author luh
@@ -15,9 +17,10 @@ public class TrabJava {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //Chamar uma tela aqui para teste
-        //TrabJava.Telas.Tela0();
+        
+        //Chamando tela aqui para teste
+        Tela1 tel1 = new Tela1();
+        tel1.setVisible(true);
         
     }
     

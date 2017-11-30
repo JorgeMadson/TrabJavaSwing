@@ -8,11 +8,9 @@ package TrabJava.DAO;
 import TrabJava.Cliente;
 import java.io.Serializable;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
 
 //Classe abstrata pois nenhum objeto é instanciado nela
@@ -25,7 +23,7 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
-            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+            con = DAOGeral.getConexaoMySQL();
 
             st = con.prepareStatement("insert into tb_cliente (idCliente,nomeCliente,sobrenomeCliente,telefoneCliente) "
                     + "values (null, ?, ?, ?)");
@@ -52,7 +50,7 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
-            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+            con = DAOGeral.getConexaoMySQL();
 
             st = con.prepareStatement("update tb_cliente set nomeCliente=?,sobrenomeCliente=?,telefoneCliente=? where idCliente=? ");
             st.setString(1, c.getNome());
@@ -79,7 +77,7 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
-            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+            con = DAOGeral.getConexaoMySQL();
 
             st = con.prepareStatement("delete from tb_cliente where idCliente=? ");
             st.setInt(1, c.getId());
@@ -104,7 +102,7 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
-            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+            con = DAOGeral.getConexaoMySQL();
 
             st = con.prepareStatement("delete from tb_cliente where idCliente=? ");
             st.setInt(1, idCliente);
@@ -128,7 +126,7 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
-            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+            con = DAOGeral.getConexaoMySQL();
             st = con.prepareStatement("select * from tb_cliente " + "where idCliente = ?");
             st.setInt(1, id);
             rs = st.executeQuery();

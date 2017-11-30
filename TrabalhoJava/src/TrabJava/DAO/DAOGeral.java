@@ -18,6 +18,13 @@ public class DAOGeral {
     public DAOGeral() {
 
     }
+    public DAOGeral(Boolean criarBanco) {
+        if(criarBanco){
+            criarBanco();
+            criarTabelas();
+        }
+
+    }
 
     //Método de Conexão//
     public static Connection getConexaoMySQL() {
