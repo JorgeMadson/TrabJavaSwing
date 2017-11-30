@@ -270,6 +270,18 @@ public class Tela1 extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        try{
+            String busca = jTextField10.getText();
+            Cliente resultado = ClienteDAO.buscarPorNomes(busca);
+            if(resultado.getNome() != null)
+            jTextField10.setText(resultado.getNome()+resultado.getSobrenome()+resultado.getTelefone());
+            else
+                jTextField10.setText("Não foi encontrado");
+        }
+        catch(Exception e){
+            jTextField10.setText("Erro ao fazer a busca");
+        }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
