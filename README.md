@@ -17,3 +17,5 @@ USE db_proj;
 CREATE TABLE tb_cliente( idCliente INT(64) NOT NULL AUTO_INCREMENT PRIMARY KEY , nomeCliente VARCHAR(100),sobrenomeCliente VARCHAR(100), telefoneCliente INT);
 CREATE TABLE tb_pedido( idPedido INT(64) NOT NULL AUTO_INCREMENT PRIMARY KEY , nomePedido VARCHAR(100),statusPedido VARCHAR(100));
 ```
+### Diagrama de Classes
+![alt text](https://raw.githubusercontent.com/JorgeMadson/TrabJavaSwing/master/diagramaClasses.png)
