@@ -184,5 +184,10 @@ public class DAOGeral {
        //O que importa é o id;
        a.setId(1);
        ClienteDAO.removerCliente(a);*/
+       
+       /*//Teste receber Cliente do banco
+       Cliente teste = ClienteDAO.buscarPorId(3);
+       System.out.println(teste.getNome()+teste.getSobrenome()+teste.getTelefone());*/
+       
     }
 }

@@ -20,7 +20,6 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
 
     static ResultSet rs = null;
     static Connection con = null;
-    static Statement st = null;
 
     public static boolean inserirCliente(Cliente c) {
         PreparedStatement st = null;
@@ -126,7 +125,33 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
     }
 
     public static Cliente buscarPorId(int id) {
-        return null;
+        PreparedStatement st = null;
+        try {
+            //Conexao com o banco:
+            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+            st = con.prepareStatement("select * from tb_cliente " + "where idCliente = ?");
+            st.setInt(1, id);
+            rs = st.executeQuery();
+            
+            Cliente resposta = new Cliente();
+            while (rs.next()) {
+                resposta.setId(rs.getInt("idCliente"));
+                resposta.setNome(rs.getString("nomeCliente"));
+                resposta.setSobrenome(rs.getString("sobrenomeCliente"));
+                resposta.setTelefone(rs.getInt("telefoneCliente"));
+            }
+            return resposta;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                }
+            }
+        }
     }
 
     public static List<Cliente> buscarTodos() {
