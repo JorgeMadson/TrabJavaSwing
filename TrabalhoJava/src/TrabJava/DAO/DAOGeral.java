@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 //Início da classe de conexão//
 public class DAOGeral {
@@ -19,11 +20,11 @@ public class DAOGeral {
 
     }
     public DAOGeral(Boolean criarBanco) {
-        if(criarBanco){
-            criarBanco();
-            criarTabelas();
+        if (criarBanco) {
+            if (criarBanco()) {
+                criarTabelas();
+            }
         }
-
     }
 
     //Método de Conexão//
@@ -195,6 +196,11 @@ public class DAOGeral {
        /*//Teste receber Cliente do banco
        Cliente teste = ClienteDAO.buscarPorId(3);
        System.out.println(teste.getNome()+teste.getSobrenome()+teste.getTelefone());*/
+       
+       /*//Teste receber todos os clientes do banco
+       ArrayList<Cliente> list = ClienteDAO.buscarTodos();
+       for(Cliente c : list){
+       System.out.println(c.getNome()+c.getSobrenome()+c.getTelefone());}*/
        
     }
 }
