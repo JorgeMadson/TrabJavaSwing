@@ -8,7 +8,6 @@ package TrabJava.Telas;
 import TrabJava.Cliente;
 import TrabJava.DAO.ClienteDAO;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -316,9 +315,22 @@ public void mostrarDadosNaTabela(ArrayList<Cliente> listDeClientes, JTable table
     private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField21ActionPerformed
-
+    //Botão Excluir (Cadastrar Cliente)
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        try{
+            int testeTelefone = Integer.parseInt(jTextField22.getText());
+            //Cliente clienteParaExcluir = new Cliente(jTextField20.getText(), jTextField21.getText(), Integer.parseInt(jTextField22.getText()));
+            Cliente clienteParaExcluir = ClienteDAO.buscarPorNomes(jTextField20.getText());
+            ClienteDAO.removerCliente(clienteParaExcluir.getId());
+            jTextField20.setText("Cliente excluído");
+            jTextField21.setText("");
+            jTextField22.setText("");
+
+        }
+        catch (NumberFormatException e) {
+            jTextField22.setText("Número inválido");
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
     //Botão Salvar (Cadastrar Cliente)
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -327,6 +339,9 @@ public void mostrarDadosNaTabela(ArrayList<Cliente> listDeClientes, JTable table
             int teste = Integer.parseInt(jTextField22.getText());
             Cliente novoCliente = new Cliente(jTextField20.getText(), jTextField21.getText(), Integer.parseInt(jTextField22.getText()));
             ClienteDAO.inserirCliente(novoCliente);
+            jTextField20.setText("Cliente inserido");
+            jTextField21.setText("");
+            jTextField22.setText("");
         } catch (NumberFormatException e) {
             jTextField22.setText("Número inválido");
         }

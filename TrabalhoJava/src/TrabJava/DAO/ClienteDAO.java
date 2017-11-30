@@ -72,15 +72,17 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
             }
         }
     }
-
+    /*//Esse método da erro pq o banco está em safe mode e só deixa excluir por id
     public static boolean removerCliente(Cliente c) {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
             con = DAOGeral.getConexaoMySQL();
 
-            st = con.prepareStatement("delete from tb_cliente where idCliente=? ");
-            st.setInt(1, c.getId());
+            st = con.prepareStatement("delete from tb_cliente where nomeCliente=? and sobrenomeCliente=? and telefoneCliente=?");
+            st.setString(1, c.getNome());
+            st.setString(2, c.getSobrenome());
+            st.setInt(3, c.getTelefone());
 
             int rowsAffected = st.executeUpdate();
             return true;
@@ -96,6 +98,7 @@ public abstract class ClienteDAO extends Cliente implements Serializable {
             }
         }
     }
+    */
 
     //Este segundo método recebe apenas o ID como parâmetro
     public static boolean removerCliente(int idCliente) {
