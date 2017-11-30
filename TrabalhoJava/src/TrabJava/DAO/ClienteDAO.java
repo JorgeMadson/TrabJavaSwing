@@ -15,11 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-/**
- *
- * @author Jorge
- */
-public class ClienteDAO extends Cliente implements Serializable {
+//Classe abstrata pois nenhum objeto é instanciado nela
+public abstract class ClienteDAO extends Cliente implements Serializable {
 
     static ResultSet rs = null;
     static Connection con = null;
@@ -29,8 +26,8 @@ public class ClienteDAO extends Cliente implements Serializable {
         PreparedStatement st = null;
         try {
             //Conexao com o banco:
-            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj" ,"root", "root");
-            
+            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+
             st = con.prepareStatement("insert into tb_cliente (idCliente,nomeCliente,sobrenomeCliente,telefoneCliente) "
                     + "values (null, ?, ?, ?)");
             st.setString(1, c.getNome());
@@ -76,7 +73,7 @@ public class ClienteDAO extends Cliente implements Serializable {
                 } catch (SQLException ex) {
                 }
             }
-        }   
+        }
     }
 
     public static boolean removerCliente(Cliente c) {
@@ -87,6 +84,31 @@ public class ClienteDAO extends Cliente implements Serializable {
 
             st = con.prepareStatement("delete from tb_cliente where idCliente=? ");
             st.setInt(1, c.getId());
+
+            int rowsAffected = st.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ex) {
+                }
+            }
+        }
+    }
+
+    //Este segundo método recebe apenas o ID como parâmetro
+    public static boolean removerCliente(int idCliente) {
+        PreparedStatement st = null;
+        try {
+            //Conexao com o banco:
+            con = DriverManager.getConnection("jdbc:mysql://localhost/db_proj", "root", "root");
+
+            st = con.prepareStatement("delete from tb_cliente where idCliente=? ");
+            st.setInt(1, idCliente);
 
             int rowsAffected = st.executeUpdate();
             return true;
